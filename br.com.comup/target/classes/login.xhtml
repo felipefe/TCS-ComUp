@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
+
+<h:body style="background-color: #0388e5;">
+	<h:form>
+
+		<p:growl id="growl" showSummary="false" showDetail="true" life="3000" />
+
+		<p:dialog header="Login"  resizable="false" visible="true" closable="false" draggable="false">
+			<h:panelGrid columns="2" cellpadding="5">
+				<h:outputLabel for="login" value="Login" />
+				<p:inputText id="login" value="#{loginBean.login}" 
+					required="true" requiredMessage="O campo e-mail deve ser informado" />
+
+				<h:outputLabel for="senha" value="Senha" />
+				<p:password id="senha" value="#{loginBean.senha}"
+					required="true" requiredMessage="A senha deve ser informado" />
+
+				<f:facet name="footer">
+					<p:commandButton value="Login" action="#{loginBean.efetuarLogin}" update="growl"  />
+				</f:facet>
+			</h:panelGrid>
+		</p:dialog>
+	</h:form>
+
+</h:body>
+</html>
